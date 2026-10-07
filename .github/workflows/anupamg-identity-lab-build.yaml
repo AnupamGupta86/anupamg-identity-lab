@@ -24,8 +24,14 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Run tests
-        run: python -m pytest -v
+      - name: Run service tests
+        run: |
+          for service in identity-ui identity-api identity-core audit-service; do
+            if [ -d "$service/tests" ]; then
+              echo "Testing $service"
+              (cd "$service" && python -m pytest -v tests)
+            fi
+          done
 
   publish:
     needs: ci
