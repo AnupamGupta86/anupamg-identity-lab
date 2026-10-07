@@ -1,4 +1,4 @@
-name: Build service - anupamg-identity-lab
+name: Build service images
 
 on:
   push:
