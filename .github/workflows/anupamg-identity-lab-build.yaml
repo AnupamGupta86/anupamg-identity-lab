@@ -3,6 +3,7 @@ name: Test and publish service images
 on:
   push:
     branches: ['**']
+
   pull_request:
     types: [closed]
     branches: [master]
